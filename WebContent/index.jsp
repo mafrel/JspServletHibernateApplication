@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -171,8 +172,18 @@ body, html {
             <a href="#" class="register" style="float: right">
                 Register
             </a><br/>
-            <% if(request.getAttribute(msg).equals("")) %>
-            <span><p style="text-align: center; color:red;">Login Unsuccessful!!!</p></span>
+           <%--  <%
+            	String msg = request.getParameter("msg");
+            	if(!msg.equals(""))
+            %> --%>
+            <tag>
+	            <c:choose>
+	            	<c:when msgs = "${msg=="hello"}">
+	            		<span><p style="text-align: center; color:red;">Login Unsuccessful!!!</p></span>
+            		</c:when>
+	            </c:choose>
+            </tag>
+            
         </div><!-- /card-container -->
     </div><!-- /container -->
 </body>
